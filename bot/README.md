@@ -1,11 +1,12 @@
-# Telegram Bot
+# Telegram Control Layer
 
-Secrets must remain outside the Git repository.
+The Telegram bot is an administrative control interface.
 
-Never commit:
+Security principles:
 
-- Bot tokens
-- API keys
-- Passwords
-- PINs
-- Private keys
+- administrator allowlist
+- no arbitrary shell execution
+- explicit confirmation for state-changing operations
+- secrets stored outside Git
+- Telegram token is never hardcoded
+- security tools remain restricted to authorized labs
