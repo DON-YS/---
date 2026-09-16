@@ -1,0 +1,198 @@
+{
+  "version": 15,
+  "tools": {
+    "nmap": {
+      "category": "recon",
+      "type": "termux",
+      "check": {
+        "kind": "command",
+        "name": "nmap"
+      },
+      "install": "pkg install -y nmap"
+    },
+
+    "tor": {
+      "category": "privacy",
+      "type": "termux",
+      "check": {
+        "kind": "command",
+        "name": "tor"
+      },
+      "install": "pkg install -y tor"
+    },
+
+    "sqlmap": {
+      "category": "web_security",
+      "type": "repository",
+      "check": {
+        "kind": "python_file",
+        "path": "$HOME/.ys-ultra15/opt/sqlmap/sqlmap.py"
+      },
+      "install": "git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git $HOME/.ys-ultra15/opt/sqlmap"
+    },
+
+    "naabu": {
+      "category": "recon",
+      "type": "go",
+      "check": {
+        "kind": "command",
+        "name": "naabu"
+      },
+      "install": "go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
+    },
+
+    "nuclei": {
+      "category": "recon",
+      "type": "go",
+      "check": {
+        "kind": "command",
+        "name": "nuclei"
+      },
+      "install": "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
+    },
+
+    "subfinder": {
+      "category": "recon",
+      "type": "go",
+      "check": {
+        "kind": "command",
+        "name": "subfinder"
+      },
+      "install": "go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
+    },
+
+    "ffuf": {
+      "category": "fuzzing",
+      "type": "go",
+      "check": {
+        "kind": "command",
+        "name": "ffuf"
+      },
+      "install": "go install github.com/ffuf/ffuf/v2@latest"
+    },
+
+    "gobuster": {
+      "category": "fuzzing",
+      "type": "go",
+      "check": {
+        "kind": "command",
+        "name": "gobuster"
+      },
+      "install": "go install github.com/OJ/gobuster/v3@latest"
+    },
+
+    "mitmproxy": {
+      "category": "traffic",
+      "type": "python",
+      "check": {
+        "kind": "python_module",
+        "name": "mitmproxy"
+      },
+      "install": "python -m pip install --prefer-binary mitmproxy"
+    },
+
+    "tshark": {
+      "category": "traffic",
+      "type": "termux",
+      "check": {
+        "kind": "command",
+        "name": "tshark"
+      },
+      "install": "pkg install -y tshark"
+    },
+
+    "bettercap": {
+      "category": "traffic",
+      "type": "go",
+      "check": {
+        "kind": "command",
+        "name": "bettercap"
+      },
+      "install": "go install github.com/bettercap/bettercap@latest"
+    },
+
+    "iodine": {
+      "category": "network",
+      "type": "termux",
+      "check": {
+        "kind": "command",
+        "name": "iodine"
+      },
+      "install": "pkg install -y iodine"
+    },
+
+    "websploit": {
+      "category": "web_security",
+      "type": "python",
+      "check": {
+        "kind": "python_module",
+        "name": "websploit"
+      },
+      "install": "python -m pip install websploit"
+    },
+
+    "routersploit": {
+      "category": "web_security",
+      "type": "python",
+      "check": {
+        "kind": "python_module",
+        "name": "routersploit"
+      },
+      "install": "python -m pip install routersploit"
+    },
+
+    "xray-core": {
+      "category": "network",
+      "type": "external",
+      "install": "Install official ARM64 Xray release"
+    },
+
+    "sing-box": {
+      "category": "network",
+      "type": "external",
+      "install": "Install official ARM64 sing-box release"
+    },
+
+    "setoolkit": {
+      "category": "social_simulation",
+      "type": "lab",
+      "install": "Use inside dedicated Kali/PRoot laboratory"
+    },
+
+    "phishing-simulator": {
+      "category": "social_simulation",
+      "type": "lab",
+      "install": "Use isolated training environment; no credential collection"
+    },
+
+    "hack-the-box": {
+      "category": "lab_platform",
+      "type": "web",
+      "install": "Open official Hack The Box platform"
+    },
+
+    "tryhackme": {
+      "category": "lab_platform",
+      "type": "web",
+      "install": "Open official TryHackMe platform"
+    },
+
+    "log4shell": {
+      "category": "lab",
+      "type": "lab",
+      "install": "Use deliberately vulnerable local Log4Shell training lab"
+    },
+
+    "fuzzing": {
+      "category": "lab",
+      "type": "lab",
+      "install": "Use ffuf/gobuster against an authorized local lab"
+    },
+
+    "mullvad-browser": {
+      "category": "privacy",
+      "type": "external",
+      "install": "Use official Mullvad distribution where supported"
+    }
+  }
+}

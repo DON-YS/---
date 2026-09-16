@@ -1,0 +1,120 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+TITLE="⁖ 𝐃𝐎𝐍 ⁞ 𝐒𝐇𝐀𝐇𝐄𝐄𝐍-♔"
+BASE="$HOME/.ys-ultra15"
+
+echo "$TITLE"
+echo
+echo "Y-SHAHEEN PRO — UPDATE CHECK"
+echo "============================================================"
+echo
+
+if ! command -v git >/dev/null 2>&1; then
+    echo "❌ Git is not installed."
+    echo
+    echo "Install:"
+    echo "pkg install git"
+    exit 1
+fi
+
+if [ -z "${YS15_REPO:-}" ]; then
+    echo "⚠️ YS15_REPO is not configured."
+    echo
+    echo "Configure your GitHub repository first:"
+    echo
+    echo 'export YS15_REPO="https://github.com/YOUR-ACCOUNT/YOUR-REPO.git"'
+    echo
+    echo "No update was performed."
+    exit 0
+fi
+
+if ! printf '%s' "$YS15_REPO" | grep -Eq '^https://github\.com/[^/]+/[^/]+(\.git)?/?$'; then
+    echo "❌ Invalid GitHub repository URL."
+    echo
+    echo "Expected:"
+    echo "https://github.com/OWNER/REPOSITORY.git"
+    exit 1
+fi
+
+CURRENT_VERSION="unknown"
+
+if [ -f "$BASE/VERSION" ]; then
+    CURRENT_VERSION="$(tr -d '[:space:]' < "$BASE/VERSION")"
+fi
+
+echo "Local version : $CURRENT_VERSION"
+echo "Repository    : $YS15_REPO"
+echo
+echo "Checking repository..."
+echo
+
+TMP="$(mktemp -d)"
+trap 'rm -rf "$TMP"' EXIT
+
+if ! git clone --depth 1 "$YS15_REPO" "$TMP/repo" >/dev/null 2>&1; then
+    echo "❌ Unable to read repository."
+    echo
+    echo "The repository may be empty or unavailable."
+    exit 1
+fi
+
+REMOTE_VERSION="unknown"
+
+if [ -f "$TMP/repo/VERSION" ]; then
+    REMOTE_VERSION="$(tr -d '[:space:]' < "$TMP/repo/VERSION")"
+fi
+
+echo "Remote version: $REMOTE_VERSION"
+echo
+
+if [ "$REMOTE_VERSION" = "unknown" ]; then
+    echo "⚠️ Repository has no VERSION file."
+    echo "Update cancelled."
+    exit 1
+fi
+
+if [ "$CURRENT_VERSION" = "$REMOTE_VERSION" ]; then
+    echo "✓ Script 15 is already up to date."
+    exit 0
+fi
+
+echo "⚠️ Update available."
+echo
+echo "Local : $CURRENT_VERSION"
+echo "Remote: $REMOTE_VERSION"
+echo
+
+printf "Install this update? [y/N]: "
+read -r answer
+
+case "$answer" in
+
+    y|Y|yes|YES)
+
+        echo
+        echo "Preparing update..."
+
+        if [ ! -f "$TMP/repo/install.sh" ]; then
+            echo "❌ Repository does not contain install.sh."
+            exit 1
+        fi
+
+        echo "✓ Repository validated."
+        echo
+        echo "Running installer..."
+        echo
+
+        bash "$TMP/repo/install.sh"
+
+        echo
+        echo "✓ Update completed."
+        ;;
+
+    *)
+        echo
+        echo "Update cancelled."
+        ;;
+
+esac

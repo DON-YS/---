@@ -1,0 +1,9 @@
+{
+  "mode": "educational",
+  "authorization_required": true,
+  "lab_only": true,
+  "arbitrary_remote_shell": false,
+  "credential_collection": false,
+  "real_world_phishing": false,
+  "destructive_actions": false
+}

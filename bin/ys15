@@ -1,0 +1,207 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+BASE="$HOME/.ys-ultra15"
+
+detect_python() {
+    if command -v python >/dev/null 2>&1; then
+        command -v python
+        return 0
+    fi
+
+    if command -v python3 >/dev/null 2>&1; then
+        command -v python3
+        return 0
+    fi
+
+    return 1
+}
+
+PYTHON="$(detect_python 2>/dev/null || true)"
+
+run_python() {
+    if [ -z "$PYTHON" ]; then
+        echo
+        echo "❌ Python is not installed."
+        echo
+        echo "Install:"
+        echo "pkg install python"
+        return 127
+    fi
+
+    "$PYTHON" "$@"
+}
+
+pause_screen() {
+    echo
+    printf "Press Enter to return..."
+    read -r
+}
+
+header() {
+    clear
+    echo "============================================================"
+    echo "⁖ 𝐃𝐎𝐍 ⁞ 𝐒𝐇𝐀𝐇𝐄𝐄𝐍-♔"
+    echo "Y-SHAHEEN PRO — SCRIPT 15"
+    echo "============================================================"
+    echo
+}
+
+while true; do
+
+    header
+
+    echo "  1) 🔍 Tool Scan"
+    echo "  2) 📦 Install Tool"
+    echo "  3) 📊 Tool Status"
+    echo "  4) 🔄 Update Check"
+    echo "  5) 🛡️ Security Lab"
+    echo "  0) 🚪 Exit"
+    echo
+
+    printf "YS15 > "
+    read -r choice
+
+    case "$choice" in
+
+        1)
+            header
+            echo "TOOL SCAN"
+            echo "============================================================"
+            echo
+
+            run_python "$BASE/core/scanner.py"
+
+            pause_screen
+            ;;
+
+        2)
+            header
+            echo "INSTALL TOOL"
+            echo "============================================================"
+            echo
+
+            run_python "$BASE/core/core.py" status
+
+            echo
+            printf "Tool ID > "
+            read -r tool
+
+            if [ -z "$tool" ]; then
+                echo
+                echo "⚠️ No tool selected."
+                pause_screen
+                continue
+            fi
+
+            echo
+            echo "⚠️ Confirmation"
+            echo "Install: $tool"
+            echo
+
+            printf "Continue? [y/N]: "
+            read -r confirm
+
+            case "$confirm" in
+
+                y|Y|yes|YES)
+                    echo
+                    run_python "$BASE/core/core.py" install "$tool"
+                    ;;
+
+                *)
+                    echo
+                    echo "Cancelled."
+                    ;;
+            esac
+
+            pause_screen
+            ;;
+
+        3)
+            header
+            echo "TOOL STATUS"
+            echo "============================================================"
+            echo
+
+            run_python "$BASE/core/core.py" status
+
+            pause_screen
+            ;;
+
+        4)
+            header
+            echo "UPDATE CHECK"
+            echo "============================================================"
+            echo
+
+            if [ -x "$BASE/bin/ys15-update" ]; then
+                "$BASE/bin/ys15-update"
+            else
+                echo "❌ Update engine not installed."
+            fi
+
+            pause_screen
+            ;;
+
+        5)
+            header
+            echo "SECURITY LAB"
+            echo "============================================================"
+            echo
+            echo "Authorized / isolated laboratory use only."
+            echo
+
+            echo "Recon:"
+            echo "  • Nmap"
+            echo "  • Naabu"
+            echo "  • Nuclei"
+            echo "  • Subfinder"
+            echo
+
+            echo "Web testing:"
+            echo "  • FFUF"
+            echo "  • Gobuster"
+            echo "  • SQLMap"
+            echo
+
+            echo "Traffic:"
+            echo "  • Tshark"
+            echo "  • Mitmproxy"
+            echo "  • Bettercap"
+            echo
+
+            echo "Social simulation:"
+            echo "  • SEToolkit"
+            echo "  • Training simulators"
+            echo
+
+            echo "Use only against systems you own or are explicitly"
+            echo "authorized to test."
+
+            pause_screen
+            ;;
+
+        0)
+            clear
+            echo "⁖ 𝐃𝐎𝐍 ⁞ 𝐒𝐇𝐀𝐇𝐄𝐄𝐍-♔"
+            echo
+            echo "Y-SHAHEEN PRO OFF"
+            exit 0
+            ;;
+
+        "")
+            continue
+            ;;
+
+        *)
+            echo
+            echo "⚠️ Invalid option."
+            echo "Valid options: 0-5"
+            sleep 1
+            ;;
+
+    esac
+
+done

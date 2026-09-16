@@ -1,0 +1,13 @@
+{
+  "title": "⁖ 𝐃𝐎𝐍 ⁞ 𝐒𝐇𝐀𝐇𝐄𝐄𝐍-♔",
+  "status": "SYSTEM ONLINE",
+  "buttons": [
+    ["Termux-Ys 000"],
+    ["Tools", "Distros"],
+    ["Projects", "Cloud"],
+    ["Backups", "Security"],
+    ["Upload", "Restore"],
+    ["Update", "System"],
+    ["Tmux", "Web"]
+  ]
+}

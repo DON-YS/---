@@ -1,0 +1,13 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+BASE="$HOME/.ys-ultra15"
+
+if command -v python >/dev/null 2>&1; then
+    exec python "$BASE/core/scanner.py"
+elif command -v python3 >/dev/null 2>&1; then
+    exec python3 "$BASE/core/scanner.py"
+else
+    echo "❌ Python is not installed."
+    echo "Install with: pkg install python"
+    exit 1
+fi

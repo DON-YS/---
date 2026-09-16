@@ -1,0 +1,11 @@
+{
+  "recon": "Reconnaissance",
+  "web_security": "Web Security",
+  "fuzzing": "Fuzzing",
+  "traffic": "Traffic Analysis",
+  "network": "Networking",
+  "privacy": "Privacy",
+  "social_simulation": "Social Engineering Simulation",
+  "lab_platform": "Training Platforms",
+  "lab": "Security Labs"
+}
