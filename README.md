@@ -1,4 +1,3 @@
-```markdown
 <p align="center">
   <img
     src="https://files.catbox.moe/c0px9v.gif"
@@ -201,7 +200,7 @@ Pirate - ☠️
 
 The environment is designed around the following Termux packages.
 
-Shell and system
+**Shell and system**
 
 ```text
 bash
@@ -223,7 +222,7 @@ tree
 which
 ```
 
-Networking
+**Networking**
 
 ```text
 curl
@@ -236,7 +235,7 @@ tor
 aria2
 ```
 
-Development
+**Development**
 
 ```text
 git
@@ -256,7 +255,7 @@ cargo
 openjdk
 ```
 
-Data and databases
+**Data and databases**
 
 ```text
 sqlite
@@ -265,7 +264,7 @@ mariadb
 redis
 ```
 
-Storage and synchronization
+**Storage and synchronization**
 
 ```text
 rclone
@@ -274,7 +273,7 @@ syncthing
 squashfs-tools
 ```
 
-Security and cryptography
+**Security and cryptography**
 
 ```text
 openssl
@@ -284,7 +283,7 @@ inotify-tools
 aide
 ```
 
-Terminal productivity
+**Terminal productivity**
 
 ```text
 tmux
@@ -298,7 +297,7 @@ git-delta
 tldr
 ```
 
-Archive/media/build utilities
+**Archive/media/build utilities**
 
 ```text
 ffmpeg
@@ -316,25 +315,25 @@ Python is one of the primary automation languages in the project.
 
 Used for:
 
-· Y-SHAHEEN core
-· Telegram Bot API integration
-· scanners
-· registry management
-· dependency checks
-· verification
-· automation
-· project utilities
+- Y-SHAHEEN core
+- Telegram Bot API integration
+- scanners
+- registry management
+- dependency checks
+- verification
+- automation
+- project utilities
 
 Related Python tools and projects:
 
-· Aider
-· SQLMap
-· Mitmproxy
-· Puppeteer-related automation through Python/Node workflows
-· Textual
-· Flet
+- Aider
+- SQLMap
+- Mitmproxy
+- Puppeteer-related automation through Python/Node workflows
+- Textual
+- Flet
 
-Aider
+**Aider**
 
 Aider was evaluated for ARM64 Termux.
 
@@ -358,14 +357,14 @@ Aider should therefore be considered a Linux/PRoot development component unless 
 
 Supported development ecosystem:
 
-· Node.js
-· npm
-· pnpm
-· Bun
-· Puppeteer
-· Puppeteer-core
-· JavaScript automation
-· web tooling
+- Node.js
+- npm
+- pnpm
+- Bun
+- Puppeteer
+- Puppeteer-core
+- JavaScript automation
+- web tooling
 
 Puppeteer/Puppeteer-core requires a compatible browser executable.
 
@@ -375,17 +374,17 @@ Puppeteer/Puppeteer-core requires a compatible browser executable.
 
 Rust tooling included in the environment design:
 
-· rust
-· rustc
-· cargo
+- rust
+- rustc
+- cargo
 
 Rust is useful for:
 
-· native utilities
-· high-performance command-line tools
-· ARM64 development
-· security tooling
-· systems development
+- native utilities
+- high-performance command-line tools
+- ARM64 development
+- security tooling
+- systems development
 
 ---
 
@@ -393,16 +392,16 @@ Rust is useful for:
 
 Go tooling:
 
-· golang
-· go
+- golang
+- go
 
 Used for the Go ecosystem and tools such as:
 
-· Naabu
-· Nuclei
-· Subfinder
-· ffuf
-· other Go-based CLI utilities
+- Naabu
+- Nuclei
+- Subfinder
+- ffuf
+- other Go-based CLI utilities
 
 ---
 
@@ -410,7 +409,7 @@ Used for the Go ecosystem and tools such as:
 
 The PRoot environment supports the following distribution targets.
 
-Debian
+**Debian**
 
 debian
 
@@ -418,7 +417,7 @@ General-purpose Linux development environment.
 
 ---
 
-Ubuntu
+**Ubuntu**
 
 ubuntu
 
@@ -426,7 +425,7 @@ General-purpose development, Python, cloud and server environment.
 
 ---
 
-Kali Linux
+**Kali Linux**
 
 kali-rolling
 
@@ -436,7 +435,7 @@ Use only against systems and targets for which you have authorization.
 
 ---
 
-Alpine Linux
+**Alpine Linux**
 
 alpine
 
@@ -444,7 +443,7 @@ Lightweight Linux environment.
 
 ---
 
-Parrot OS
+**Parrot OS**
 
 parrot
 
@@ -460,7 +459,7 @@ actually reports it.
 
 ---
 
-NixOS
+**NixOS**
 
 nixos
 
@@ -474,14 +473,14 @@ It must not be considered installed unless it is actually available and register
 
 The project includes a Linux GUI deployment path.
 
-Kali GUI
+**Kali GUI**
 
 The tested GUI deployment path uses:
 
-· XFCE4
-· xfce4-goodies
-· dbus-x11
-· TigerVNC
+- XFCE4
+- xfce4-goodies
+- dbus-x11
+- TigerVNC
 
 Example environment:
 
@@ -544,7 +543,7 @@ The GUI layer must be treated separately from the base Termux environment.
 
 The project includes a database-oriented development layer.
 
-SQLite
+**SQLite**
 
 Lightweight embedded database:
 
@@ -554,15 +553,15 @@ sqlite3
 
 Suitable for:
 
-· local state
-· metadata
-· small projects
-· automation
-· test databases
+- local state
+- metadata
+- small projects
+- automation
+- test databases
 
 ---
 
-PostgreSQL
+**PostgreSQL**
 
 Server-grade relational database:
 
@@ -573,15 +572,15 @@ postgres
 
 Used for:
 
-· application development
-· backend testing
-· relational workloads
+- application development
+- backend testing
+- relational workloads
 
 Requires initialization and server startup before use.
 
 ---
 
-MariaDB
+**MariaDB**
 
 MySQL-compatible relational database:
 
@@ -591,15 +590,15 @@ mariadb
 
 Used for:
 
-· web development
-· backend applications
-· SQL testing
+- web development
+- backend applications
+- SQL testing
 
 Requires initialization and server startup.
 
 ---
 
-Redis
+**Redis**
 
 In-memory data store:
 
@@ -610,10 +609,10 @@ redis-cli
 
 Used for:
 
-· caching
-· queues
-· sessions
-· development environments
+- caching
+- queues
+- sessions
+- development environments
 
 Requires the Redis server process to be running.
 
@@ -635,10 +634,10 @@ Standard non-root Android Termux does not provide the same Docker daemon environ
 
 Possible deployment models include:
 
-· PRoot/Linux
-· Remote Linux VM
-· Cloud server
-· Rootless-compatible environment
+- PRoot/Linux
+- Remote Linux VM
+- Cloud server
+- Rootless-compatible environment
 
 Docker should therefore be treated as an optional infrastructure component, not assumed to be natively available on every Termux installation.
 
@@ -650,21 +649,21 @@ The project is designed to work with external infrastructure where available.
 
 Tools and technologies include:
 
-· GitHub
-· Git
-· GitHub CLI
-· Rclone
-· OpenSSH
-· Kubernetes-related tooling
-· kubectl
-· Helm
-· Terraform
-· Ansible
-· Docker
-· QEMU
-· Crossplane
-· KubeVirt
-· cloud/VPS environments
+- GitHub
+- Git
+- GitHub CLI
+- Rclone
+- OpenSSH
+- Kubernetes-related tooling
+- kubectl
+- Helm
+- Terraform
+- Ansible
+- Docker
+- QEMU
+- Crossplane
+- KubeVirt
+- cloud/VPS environments
 
 The project does not claim that Termux itself magically provides a free remote cloud server.
 
@@ -676,25 +675,25 @@ A cloud server requires an actual provider or remote infrastructure.
 
 The broader Y-SHAHEEN environment has also investigated:
 
-Kubernetes
+**Kubernetes**
 
 Container orchestration platform.
 
 ---
 
-Crossplane
+**Crossplane**
 
 Infrastructure control plane for managing cloud and infrastructure resources through Kubernetes APIs.
 
 ---
 
-KubeVirt
+**KubeVirt**
 
 Virtual machine management on Kubernetes.
 
 ---
 
-Firecracker
+**Firecracker**
 
 Lightweight microVM technology suitable for isolated workloads.
 
@@ -706,32 +705,32 @@ These projects are infrastructure/server-side components and should not be consi
 
 Security and cryptography layer:
 
-· OpenSSL
-· GnuPG / GPG
-· ClamAV
-· AIDE
-· shred
-· srm
-· GoCryptFS
-· Cryptomator
-· VeraCrypt
-· EDS
-· iShredder
-· rclone crypt
-· encryption/decryption workflows
-· SHA-256 verification
+- OpenSSL
+- GnuPG / GPG
+- ClamAV
+- AIDE
+- shred
+- srm
+- GoCryptFS
+- Cryptomator
+- VeraCrypt
+- EDS
+- iShredder
+- rclone crypt
+- encryption/decryption workflows
+- SHA-256 verification
 
-Important
+**Important**
 
 Not every cryptography product listed above is a native Termux package.
 
 Some are:
 
-· Android applications
-· Linux applications
-· external tools
-· PRoot-compatible software
-· optional components
+- Android applications
+- Linux applications
+- external tools
+- PRoot-compatible software
+- optional components
 
 The registry should report their actual status.
 
@@ -741,63 +740,63 @@ The registry should report their actual status.
 
 The security registry contains tools intended for authorized testing and educational laboratories.
 
-Network discovery
+**Network discovery**
 
-· Nmap
-· Naabu
+- Nmap
+- Naabu
 
-Vulnerability research / assessment
+**Vulnerability research / assessment**
 
-· Nuclei
-· SQLMap
-· RouterSploit
-· Metasploit
+- Nuclei
+- SQLMap
+- RouterSploit
+- Metasploit
 
-Content discovery / fuzzing
+**Content discovery / fuzzing**
 
-· ffuf
-· Gobuster
-· Fuzzing tools
+- ffuf
+- Gobuster
+- Fuzzing tools
 
-Enumeration
+**Enumeration**
 
-· Subfinder
+- Subfinder
 
-Proxy / traffic analysis
+**Proxy / traffic analysis**
 
-· Mitmproxy
-· Wireshark
-· Tshark
-· Bettercap
+- Mitmproxy
+- Wireshark
+- Tshark
+- Bettercap
 
-Tunneling / networking
+**Tunneling / networking**
 
-· Tor
-· Xray-core
-· Sing-box
-· Iodine
+- Tor
+- Xray-core
+- Sing-box
+- Iodine
 
-Web/security research
+**Web/security research**
 
-· WebSploit
+- WebSploit
 
-Social-engineering simulation
+**Social-engineering simulation**
 
-· SEToolkit
-· GoPhish
-· phishing simulators
+- SEToolkit
+- GoPhish
+- phishing simulators
 
-Honeypot / defensive research
+**Honeypot / defensive research**
 
-· Cowrie
+- Cowrie
 
-Vulnerability education
+**Vulnerability education**
 
-· Log4Shell laboratory
+- Log4Shell laboratory
 
-Browser/privacy
+**Browser/privacy**
 
-· Mullvad Browser
+- Mullvad Browser
 
 ---
 
@@ -805,14 +804,14 @@ Browser/privacy
 
 Security tools are intended for:
 
-· owned systems
-· authorized penetration tests
-· CTFs
-· Hack The Box
-· TryHackMe
-· local laboratories
-· defensive research
-· educational environments
+- owned systems
+- authorized penetration tests
+- CTFs
+- Hack The Box
+- TryHackMe
+- local laboratories
+- defensive research
+- educational environments
 
 The project does not provide authorization to attack third-party systems.
 
@@ -824,10 +823,10 @@ The Telegram control layer intentionally avoids unrestricted remote shell execut
 
 The registry includes integrations/references for:
 
-· Hack The Box
-· TryHackMe
-· Log4Shell laboratory
-· fuzzing laboratories
+- Hack The Box
+- TryHackMe
+- Log4Shell laboratory
+- fuzzing laboratories
 
 These are external platforms/environments and are not installed as Termux packages.
 
@@ -837,19 +836,19 @@ These are external platforms/environments and are not installed as Termux packag
 
 The project registry separates tools into categories.
 
-· Networking
-· Security
-· Cryptography
-· Development
-· Databases
-· Storage
-· Cloud
-· Linux
-· GUI
-· Productivity
-· Automation
-· Laboratory
-· External Platforms
+- Networking
+- Security
+- Cryptography
+- Development
+- Databases
+- Storage
+- Cloud
+- Linux
+- GUI
+- Productivity
+- Automation
+- Laboratory
+- External Platforms
 
 The scanner should distinguish:
 
@@ -921,14 +920,14 @@ The intended main Telegram interface is:
 
 Displays:
 
-· Android architecture
-· Termux environment
-· memory
-· storage
-· running processes
-· uptime/status
-· CPU information
-· installed core tools
+- Android architecture
+- Termux environment
+- memory
+- storage
+- running processes
+- uptime/status
+- CPU information
+- installed core tools
 
 ---
 
@@ -936,12 +935,12 @@ Displays:
 
 Storage operations include:
 
-· local storage status
-· backup information
-· restore information
-· checksum verification
-· Rclone status
-· Telegram storage workflows
+- local storage status
+- backup information
+- restore information
+- checksum verification
+- Rclone status
+- Telegram storage workflows
 
 The project previously validated a Telegram channel upload/download workflow using a manifest and SHA-256 verification.
 
@@ -951,12 +950,12 @@ The project previously validated a Telegram channel upload/download workflow usi
 
 The Telegram distro menu:
 
-· 🐧 Debian
-· 🟠 Ubuntu
-· 🛡 Kali Linux
-· 🦜 Parrot OS
-· ⚡ Alpine
-· ❄️ NixOS
+- 🐧 Debian
+- 🟠 Ubuntu
+- 🛡 Kali Linux
+- 🦜 Parrot OS
+- ⚡ Alpine
+- ❄️ NixOS
 
 Each distro should show its actual installation state.
 
@@ -1088,11 +1087,11 @@ Tools that require a different environment are marked accordingly instead of bei
 
 The GUI control provides information for:
 
-· Kali Linux
-· XFCE4
-· XFCE Goodies
-· DBus
-· TigerVNC
+- Kali Linux
+- XFCE4
+- XFCE Goodies
+- DBus
+- TigerVNC
 
 Example:
 
@@ -1115,13 +1114,13 @@ The GUI installation path is intended for the installed kali-rolling PRoot envir
 
 Rclone functionality:
 
-· remote configuration
-· storage listing
-· upload
-· download
-· sync
-· encrypted crypt remotes
-· storage diagnostics
+- remote configuration
+- storage listing
+- upload
+- download
+- sync
+- encrypted crypt remotes
+- storage diagnostics
 
 Example:
 
@@ -1163,11 +1162,11 @@ Sensitive private keys must never be committed to Git.
 
 Development web-server controls can include:
 
-· local HTTP server
-· project server
-· status
-· port information
-· stop/start controls
+- local HTTP server
+- project server
+- status
+- port information
+- stop/start controls
 
 Only registered/safe operations should be exposed through Telegram.
 
@@ -1212,12 +1211,12 @@ The Telegram interface should expose only predefined session operations.
 
 Process monitoring can expose:
 
-· CPU
-· RAM
-· process count
-· tmux sessions
-· bot status
-· system load
+- CPU
+- RAM
+- process count
+- tmux sessions
+- bot status
+- system load
 
 Possible local tools:
 
@@ -1234,10 +1233,10 @@ top
 
 Update functionality includes:
 
-· Termux packages
-· Project files
-· Git repository
-· Tool registry
+- Termux packages
+- Project files
+- Git repository
+- Tool registry
 
 Example:
 
@@ -1363,31 +1362,31 @@ Actual status depends on the current device.
 
 🧠 Core Components
 
-core.py
+**core.py**
 
 Main project coordination layer.
 
-registry.py
+**registry.py**
 
 Tool and component registry.
 
-installer.py
+**installer.py**
 
 Installation logic for supported registry components.
 
-dependencies.py
+**dependencies.py**
 
 Dependency detection.
 
-scanner.py
+**scanner.py**
 
 Environment/tool scanning.
 
-verifier.py
+**verifier.py**
 
 Verification and validation.
 
-utils.py
+**utils.py**
 
 Shared utilities.
 
@@ -1494,38 +1493,38 @@ python -u bot/bot.py
 
 The broader environment includes support/planned integration for:
 
-· Git
-· GitHub CLI
-· uv
-· npm
-· pnpm
-· Bun
-· Go
-· Rust
-· Clang
-· CMake
-· Make
-· Terraform
-· Ansible
-· Helm
-· kubectl
-· Cookiecutter
-· Copier
-· Hygen
-· Plop
-· Neovim
-· LazyVim
-· Micro
-· Zsh
-· Oh My Zsh
-· fzf
-· tldr
-· git-delta
-· HTTPie
-· ngrok
-· OpenSSH
-· Textual
-· Flet
+- Git
+- GitHub CLI
+- uv
+- npm
+- pnpm
+- Bun
+- Go
+- Rust
+- Clang
+- CMake
+- Make
+- Terraform
+- Ansible
+- Helm
+- kubectl
+- Cookiecutter
+- Copier
+- Hygen
+- Plop
+- Neovim
+- LazyVim
+- Micro
+- Zsh
+- Oh My Zsh
+- fzf
+- tldr
+- git-delta
+- HTTPie
+- ngrok
+- OpenSSH
+- Textual
+- Flet
 
 Availability depends on the execution environment and ARM64 compatibility.
 
@@ -1568,15 +1567,15 @@ Wireshark
 
 Storage ecosystem:
 
-· Rclone
-· Rclone Crypt
-· Syncthing
-· rsync
-· SQLite
-· SquashFS
-· Telegram file storage workflow
-· SHA-256 verification
-· GPG encryption
+- Rclone
+- Rclone Crypt
+- Syncthing
+- rsync
+- SQLite
+- SquashFS
+- Telegram file storage workflow
+- SHA-256 verification
+- GPG encryption
 
 Telegram channel storage was tested with:
 
@@ -1612,11 +1611,11 @@ Upload
 
 Supported project ecosystems can include:
 
-· Python
-· Node.js
-· Go
-· Rust
-· C/C++
+- Python
+- Node.js
+- Go
+- Rust
+- C/C++
 
 depending on available manifests and toolchains.
 
@@ -1646,12 +1645,12 @@ glances
 
 The project can be used with:
 
-· Hack The Box
-· TryHackMe
-· CTF environments
-· Local vulnerable VMs
-· Local containers
-· Authorized security labs
+- Hack The Box
+- TryHackMe
+- CTF environments
+- Local vulnerable VMs
+- Local containers
+- Authorized security labs
 
 ---
 
@@ -1659,28 +1658,28 @@ The project can be used with:
 
 The registry includes references to:
 
-· Metasploit
-· Nmap
-· SQLMap
-· Naabu
-· Nuclei
-· Subfinder
-· ffuf
-· Gobuster
-· RouterSploit
-· Mitmproxy
-· Tshark
-· Wireshark
-· Bettercap
-· Tor
-· Xray-core
-· Sing-box
-· Iodine
-· WebSploit
-· SET
-· GoPhish
-· Cowrie
-· Log4Shell laboratory
+- Metasploit
+- Nmap
+- SQLMap
+- Naabu
+- Nuclei
+- Subfinder
+- ffuf
+- Gobuster
+- RouterSploit
+- Mitmproxy
+- Tshark
+- Wireshark
+- Bettercap
+- Tor
+- Xray-core
+- Sing-box
+- Iodine
+- WebSploit
+- SET
+- GoPhish
+- Cowrie
+- Log4Shell laboratory
 
 Some components are intended for Linux/PRoot or external laboratory environments rather than direct native Termux installation.
 
@@ -1710,16 +1709,16 @@ The architecture is designed to operate without requiring Android root.
 
 This README intentionally does not claim that:
 
-· every listed tool is installed
-· every tool supports Android ARM64 natively
-· Docker daemon works natively inside standard Termux
-· Parrot OS is installed automatically
-· NixOS is installed automatically
-· Aider is natively functional on Termux
-· every GUI component is always running
-· every database server is permanently running
-· every external platform is embedded locally
-· a free cloud server is magically created by Termux
+- every listed tool is installed
+- every tool supports Android ARM64 natively
+- Docker daemon works natively inside standard Termux
+- Parrot OS is installed automatically
+- NixOS is installed automatically
+- Aider is natively functional on Termux
+- every GUI component is always running
+- every database server is permanently running
+- every external platform is embedded locally
+- a free cloud server is magically created by Termux
 
 Actual installation status should be obtained from the project's scanner.
 
@@ -1727,23 +1726,23 @@ Actual installation status should be obtained from the project's scanner.
 
 👤 Owner
 
-Telegram Channel
+**Telegram Channel**
 
 Mafia 4O4
 
 https://t.me/mafia_4O4
 
-Telegram Account
+**Telegram Account**
 
 @II_4O4
 
-Telegram Bot
+**Telegram Bot**
 
 @MA_Boss_Bot
 
 https://t.me/MA_Boss_Bot
 
-Facebook
+**Facebook**
 
 Yousef Z. A. Shaheen
 
@@ -1775,14 +1774,14 @@ Telegram Automation
 
 This project is intended for:
 
-· personal development
-· system administration
-· authorized security testing
-· educational laboratories
-· CTFs
-· development environments
-· automation
-· infrastructure experimentation
+- personal development
+- system administration
+- authorized security testing
+- educational laboratories
+- CTFs
+- development environments
+- automation
+- infrastructure experimentation
 
 Users are responsible for obtaining authorization before testing systems that they do not own or administer.
 
@@ -1858,14 +1857,15 @@ git status
 
 The project intentionally distinguishes between:
 
-Status Meaning
-🟢 Installed Executable/component detected
-🟡 Optional Supported but not required
-🔴 Missing Registry entry exists but component is absent
-🔵 External External service/platform
-🧪 Lab Intended for an authorized lab
-🐧 PRoot Linux environment component
-🎨 GUI Graphical environment component
+| Status | Meaning |
+|---|---|
+| 🟢 Installed | Executable/component detected |
+| 🟡 Optional | Supported but not required |
+| 🔴 Missing | Registry entry exists but component is absent |
+| 🔵 External | External service/platform |
+| 🧪 Lab | Intended for an authorized lab |
+| 🐧 PRoot | Linux environment component |
+| 🎨 GUI | Graphical environment component |
 
 This keeps the README and Telegram interface honest about the actual state of the device.
 
@@ -1875,20 +1875,20 @@ This keeps the README and Telegram interface honest about the actual state of th
 
 The long-term goals are:
 
-· one unified Termux environment
-· modular tool registry
-· ARM64 awareness
-· PRoot Linux environments
-· GUI support
-· database support
-· development toolchains
-· secure storage
-· backup/restore
-· Telegram administration
-· automated diagnostics
-· GitHub synchronization
-· reproducible installation
-· clear separation between installed and optional components
+- one unified Termux environment
+- modular tool registry
+- ARM64 awareness
+- PRoot Linux environments
+- GUI support
+- database support
+- development toolchains
+- secure storage
+- backup/restore
+- Telegram administration
+- automated diagnostics
+- GitHub synchronization
+- reproducible installation
+- clear separation between installed and optional components
 
 ---
 
