@@ -1,404 +1,2142 @@
 <p align="center">
-  <img src="https://i.postimg.cc/0jHTtdRW/92aa1dd070ba0f22c4ca02c08131f6c4-ezgif-com-resize.gif" alt="Pirate animated identity" width="420">
+  <img
+    src="https://i.postimg.cc/0jHTtdRW/92aa1dd070ba0f22c4ca02c08131f6c4-ezgif-com-resize.gif"
+    alt="Pirate - ☠️"
+    width="900"
+  />
 </p>
 
-<h1 align="center">Pirate - ☠️</h1>
-
-<p align="center"><strong>CLI-only Termux automation and authorized security-lab tool catalog</strong></p>
+<h1 align="center"><strong>Pirate - ☠️</strong></h1>
 
 <p align="center">
-  <a href="https://github.com/DON-YS/Pirate">Repository</a> ·
-  <a href="https://t.me/mafia_4O4">Telegram Channel</a> ·
-  <a href="https://t.me/MA_Boss_Bot">Telegram Bot</a>
+  <strong>Y-SHAHEEN PARROTSHELL ULTRA — Script 15</strong>
 </p>
 
-> **Important:** Pirate is **CLI-only — not a Railway Web Service**. It does not contain an HTTP server, web dashboard, database, or live Telegram polling implementation.
+<p align="center">
+  Advanced Termux / Android ARM64 development, Linux, automation,
+  security-lab, storage, database and productivity environment.
+</p>
 
-## Table of Contents
+<p align="center">
+  <a href="https://t.me/mafia_4O4">Telegram Channel</a>
+  ·
+  <a href="https://t.me/MA_Boss_Bot">Telegram Bot</a>
+  ·
+  <a href="https://www.facebook.com/share/19FsAxNz4o/">Facebook</a>
+</p>
 
-- [About](#about)
-- [Architecture](#architecture)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Running the Project](#running-the-project)
-- [Configuration](#configuration)
-- [Tools & Dependencies](#tools--dependencies)
-- [Termux](#termux)
-- [Linux Environments](#linux-environments)
-- [Kali Linux](#kali-linux)
-- [Termux + Linux Userspaces](#termux--linux-userspaces)
-- [Railway Deployment](#railway-deployment)
-- [Security](#security)
-- [Troubleshooting](#troubleshooting)
-- [Project Structure](#project-structure)
-- [Testing and Verification](#testing-and-verification)
-- [Roadmap and Limitations](#roadmap-and-limitations)
-- [Contact](#contact)
+---
 
-## About
+## 📌 Project Overview
 
-Pirate is a small, registry-driven command-line toolkit for Termux and other Unix-like environments. It scans whether registered commands, Python modules, and files are available, displays installation metadata, and can run an explicitly registered installer after the user requests a tool.
+**Pirate - ☠️** is the project identity for the Y-SHAHEEN PARROTSHELL ULTRA
+environment developed around Termux on Android ARM64/aarch64.
 
-The repository's current version is `15.0.0`. The implementation uses Bash launchers and Python's standard library. It is intended for local administration and authorized security laboratories only.
+The project is designed as a modular environment for:
 
-### What it solves
+- Termux automation
+- Linux PRoot environments
+- Development
+- Build systems
+- Productivity
+- Databases
+- Storage and synchronization
+- Cryptography
+- Networking
+- Security testing in authorized laboratories
+- Telegram-based control
+- GUI environments
+- Project management
+- Git/GitHub workflows
+- System diagnostics
+- Backup and restoration
+- Cloud-oriented workflows
 
-Pirate keeps a catalog of optional tools in one readable JSON file and provides a consistent CLI for checking their local availability. It does not replace those tools, provide a hosted scanning service, or collect credentials.
+The project does **not** claim that every listed tool is installed natively
+on Termux. Tools are classified according to their actual environment:
 
-### Current runtime classification
+- Native Termux
+- Python
+- Node.js
+- Go
+- Rust
+- PRoot/Linux
+- GUI environment
+- External service/platform
+- Laboratory-only integration
+- Planned/optional
 
-- **Runtime:** synchronous CLI process
-- **Primary entrypoint:** `bin/ys15` for the interactive menu
-- **Direct entrypoint:** `core/core.py`
-- **Bot status:** `bot/bot.py` is a placeholder that prints a readiness message and exits; it is not connected to Telegram
-- **Worker status:** no long-running worker is currently implemented
-- **Web status:** no web server or HTTP endpoint is implemented
+---
 
-## Architecture
+# 🧭 Environment
+
+| Component | Environment |
+|---|---|
+| Host | Android |
+| Architecture | ARM64 / aarch64 |
+| Terminal | Termux |
+| Root | Not required |
+| Linux isolation | PRoot |
+| Terminal multiplexer | tmux |
+| Primary shell | Bash |
+| Python | Python 3 |
+| Package manager | Termux `pkg` |
+| Linux package manager | `apt` inside Debian/Kali/Ubuntu |
+| Source control | Git |
+| Remote source control | GitHub |
+| Automation | Bash + Python |
+| GUI target | XFCE |
+| GUI transport | VNC / Termux:X11 integration |
+| Telegram | Telegram Bot API |
+| Storage | Local + rclone + Telegram workflows |
+
+---
+
+# 🏗️ Architecture
 
 ```text
-bin/ys15                  Interactive Bash menu
-bin/ys15-scan             Bash wrapper for the scanner
-bin/ys15-install          Bash wrapper for installation
-bin/ys15-update           Bash wrapper for update checks
-        |
-        v
-core/core.py              CLI dispatcher: status / install <tool>
-        |
-        +--> core/scanner.py       Reads registry and checks local capabilities
-        +--> core/installer.py     Validates a name and runs its registered command
-        +--> core/verifier.py      Verifies a command exists
-        +--> core/dependencies.py  Prints basic command availability
-        |
-        v
-config/registry.json      Tool definitions, checks, and installer metadata
-security/policy.json      Authorized-lab safety policy
-```
+Pirate - ☠️
+│
+├── Termux
+│   ├── Bash
+│   ├── Python
+│   ├── Git
+│   ├── tmux
+│   ├── rclone
+│   ├── OpenSSH
+│   ├── OpenSSL
+│   ├── GnuPG
+│   ├── SQLite
+│   ├── networking tools
+│   └── development toolchains
+│
+├── PRoot
+│   ├── Debian
+│   ├── Ubuntu
+│   ├── Kali Linux
+│   ├── Alpine Linux
+│   ├── Parrot OS [optional]
+│   └── NixOS [optional]
+│
+├── GUI
+│   ├── XFCE
+│   ├── XFCE Goodies
+│   ├── dbus-x11
+│   ├── TigerVNC
+│   └── Termux:X11 integration
+│
+├── Y-SHAHEEN Script 15
+│   ├── core/
+│   ├── bin/
+│   ├── config/
+│   ├── bot/
+│   ├── scripts/
+│   ├── reports/
+│   ├── logs/
+│   └── locks/
+│
+└── Telegram Control Layer
+    ├── System
+    ├── Storage
+    ├── Distros
+    ├── Tools
+    ├── Rclone
+    ├── GPG
+    ├── Web Server
+    ├── Upload
+    ├── Tmux
+    ├── Processes
+    ├── Update
+    ├── BOT
+    ├── Kali GUI
+    └── All Commands
+
+
+---
+
+📁 Project Structure
 
-The standard CLI reads local files and invokes local commands. `core/installer.py` intentionally runs the command declared in the trusted registry through `bash -lc`; review registry changes before executing them. There is no database, ORM, migration system, API layer, frontend, queue, cache, or AI/LLM pipeline.
-
-## Features
-
-- Interactive Termux-oriented menu through `bin/ys15`.
-- Registry-driven tool status scanning.
-- Checks for commands, Python modules, and files.
-- Explicit tool-name validation before installation.
-- Informational entries for external and lab-only tools.
-- Optional version/update workflow controlled by `YS15_REPO`.
-- Defensive policy requiring authorization and prohibiting arbitrary remote shell, credential collection, real-world phishing, and destructive actions.
-
-## Requirements
-
-- Python 3 (standard library only for the repository core).
-- Bash and a Unix-like environment.
-- Git only for the optional update workflow.
-- Termux is the primary documented target for the `bin/` launchers.
-- Individual catalog entries may require their own tools, network access, Go, or Termux packages; they are not core Python dependencies.
-
-No `requirements.txt`, `pyproject.toml`, `poetry.lock`, `Pipfile`, `package.json`, Dockerfile, or Railway configuration currently exists in the repository. Do not install a dependency file that is not present.
-
-## Installation
-
-### Local Linux or macOS-like Unix shell
-
-```bash
-git clone https://github.com/DON-YS/Pirate.git
-cd Pirate
-python3 -m unittest discover -s tests -p 'test_*.py'
-python3 core/core.py status
-```
-
-### Termux
-
-```bash
-pkg update
-pkg install -y git python
-
-git clone https://github.com/DON-YS/Pirate.git
-cd Pirate
-python core/core.py status
-```
-
-The existing interactive wrappers expect the repository to be installed at `$HOME/.ys-ultra15`. To use them exactly as designed, run the repository's installer/update workflow that copies the project into that location, then launch `$HOME/.ys-ultra15/bin/ys15`. Running `core/core.py` directly from a clone is the simplest supported validation path.
-
-## Quick Start
-
-```bash
-git clone https://github.com/DON-YS/Pirate.git
-cd Pirate
-python3 core/core.py status
-```
-
-To install a registered entry, inspect `config/registry.json` first and then run:
-
-```bash
-python3 core/core.py install <registered-tool-name>
-```
-
-Only use security tools against systems and environments you own or are explicitly authorized to test.
-
-## Running the Project
-
-### Direct CLI
-
-```bash
-python3 core/core.py status
-python3 core/core.py install sqlmap
-```
-
-Use `python` instead of `python3` where that is the interpreter name in your environment.
-
-### Interactive launcher
-
-```bash
-bin/ys15
-```
-
-This launcher is Termux-oriented and uses `$HOME/.ys-ultra15` as its installation base. `bin/ys15-scan` and `bin/ys15-install` are non-interactive wrappers for the scanner and installer when the project is installed at that base path.
-
-### Update workflow
-
-```bash
-YS15_REPO=https://github.com/DON-YS/Pirate.git bash scripts/update.sh
-```
-
-The update script clones the configured HTTPS GitHub repository and copies files to `$HOME/.ys-ultra15`. It expects a remote `install.sh` when the separate interactive update path performs an installation; this repository currently does not contain `install.sh`.
-
-### Telegram
-
-```bash
-python3 bot/bot.py
-```
-
-This command only prints the current placeholder message. It does **not** start a Telegram bot, polling loop, webhook, router, handler, middleware, or FSM. No Telegram library or bot token is currently used by the code.
-
-## Configuration
-
-The only environment variable read by the current source is `YS15_REPO`, used by the shell update scripts. Python does not load dotenv files. `.env.example` documents the variable without containing a secret.
-
-## Environment Variables
-
-| Variable | Required | Used by | Description | Safe example |
-|---|---:|---|---|---|
-| `YS15_REPO` | Optional | `scripts/update.sh`, update flow | HTTPS GitHub repository to use as the update source | `https://github.com/OWNER/REPOSITORY.git` |
-
-There are currently no `BOT_TOKEN`, AI keys, database URLs, passwords, authentication secrets, or private keys used by the source code. Never add real credentials to `.env.example`, the README, registry JSON, or shell commands.
-
-## Tools & Dependencies
-
-### Runtime
-
-- **Python 3** — executes the scanner, dispatcher, installer, registry reader, and verifier. Uses only the standard library (`json`, `pathlib`, `shutil`, `subprocess`, `os`, `sys`, and `importlib.util`).
-- **Bash** — runs the Termux-oriented launchers and update scripts.
-
-### Optional operational tools
-
-- **Git** — required only for `scripts/update.sh` and update checks.
-- **Termux `pkg`** — referenced by Termux registry installers such as `nmap`, `tor`, `tshark`, and `iodine`.
-- **Go, Python packages, or external releases** — required only by the corresponding optional registry entry; they are not installed as core project dependencies.
-
-The registry is metadata plus executable install commands, not a package manager lockfile. Installation requirements vary by tool and platform.
-
-## Termux
-
-Termux is an Android terminal environment that provides a Unix-like userspace without requiring root for the core project. Pirate's shell wrappers were written for Termux and use `$HOME/.ys-ultra15` as their base directory.
-
-Install only what the project itself needs:
-
-```bash
-pkg update
-pkg upgrade
-pkg install -y git python
-```
-
-- `python`: runs the core CLI.
-- `git`: supports the optional update workflow.
-- `bash`: normally provided by Termux and runs the wrappers.
-
-Additional packages should be installed only for the selected registry tool. Root access is not required merely to run Pirate; some third-party tools may have independent platform or privilege requirements.
-
-## Linux Environments
-
-A Linux distribution is a packaged operating system userspace with its own package manager and defaults. Pirate's standard-library CLI is portable across ordinary Unix-like systems.
-
-- **Ubuntu:** convenient general-purpose development and broad documentation.
-- **Debian:** conservative, stable base suitable for servers and minimal environments.
-- **Kali Linux:** security-focused distribution with many assessment tools; not required for Pirate itself.
-- **Arch Linux:** rolling-release distribution with current packages and more hands-on administration.
-- **Fedora:** modern packages and strong general-purpose development tooling.
-- **Alpine Linux:** small image base using musl; some third-party binaries and packages may need extra compatibility work.
-
-For ordinary development, Ubuntu or Debian is sufficient. Choose another distribution only for a concrete operational requirement.
-
-## Kali Linux
-
-Kali Linux is a Linux distribution focused on cybersecurity, penetration testing, digital forensics, security research, and network analysis. Pirate can run there as a Python/Bash CLI, but installing Kali does not make the project a security service and is not required for the core.
-
-```bash
-sudo apt update
-sudo apt install -y git python3 python3-pip python3-venv
-
-git clone https://github.com/DON-YS/Pirate.git
-cd Pirate
-python3 core/core.py status
-python3 -m unittest discover -s tests -p 'test_*.py'
-```
-
-Use the registry's security tools only against authorized targets and isolated training labs.
-
-## Termux + Linux Userspaces
-
-Termux, a Linux userspace launched inside Termux, and Android root are different:
-
-- **Termux:** Android application/userspace; no root required for Pirate.
-- **Linux userspace in Termux:** an additional Ubuntu/Debian/Kali-like userspace, commonly provided by tools such as `proot-distro`; it is not the Android host kernel and does not automatically grant root.
-- **Root:** elevated Android device privileges; not needed for this project and should not be added just to run it.
-
-If a selected third-party tool needs a Linux package unavailable in Termux, use an appropriate userspace or distribution only for that tool. Pirate itself needs only Python and Bash, plus Git for updates.
-
-## Railway Deployment
-
-### Explicit deployment model
-
-**CLI-only — not a Railway Web Service.**
-
-Pirate has no HTTP server, web dashboard, health endpoint, persistent worker loop, or live Telegram bot. Its real commands are finite CLI commands such as `python3 core/core.py status`; they finish and exit. A normal Railway Service expects a continuously running process, so deploying the current CLI as a Railway service would not produce a functioning always-on application.
-
-Do not add FastAPI, Flask, Express, an HTTP health endpoint, a web UI, Redis, Celery, Kafka, Kubernetes, or another service solely to satisfy Railway. That would change the project's architecture and behavior.
-
-### If Railway is still used for a one-off CLI execution
-
-Railway may be used only if the selected Railway product/workflow supports a finite job or manual command execution. The command must be one of the real commands documented above, for example:
-
-```text
-python3 core/core.py status
-```
-
-This is not an always-on web deployment and does not provide a health check. Confirm the Railway plan and job semantics in the dashboard before relying on it.
-
-### GitHub → Railway workflow
-
-No GitHub Action is needed for deployment. Railway's GitHub integration can watch `main` and deploy new commits automatically, while GitHub Actions (if added later) should remain a validation pipeline only. The minimal workflow is:
-
-1. Create a Railway project/service only if a finite CLI job is appropriate for your use case.
-2. Connect `DON-YS/Pirate` through Railway's GitHub integration.
-3. Select branch `main`.
-4. Configure the real command for the intended finite CLI execution.
-5. Add only required variables in Railway Variables; currently that is optional `YS15_REPO`.
-6. Push to `main`; Railway detects the commit and starts its configured deployment/job.
-7. Read deployment logs and rerun/redeploy from the Railway dashboard when required.
-
-There is no repository-level Railway config to maintain and no automatic deployment workflow committed here. If Railway requires a long-running worker for your selected deployment type, the current repository is not compatible without an explicit architectural decision to add one.
-
-## Security
-
-- Never commit `.env`, tokens, API keys, passwords, cookies, private keys, or database credentials.
-- Store runtime values in Railway Variables or the local environment.
-- Review `config/registry.json` before running an installer: its `install` values are shell commands by design.
-- Keep security tools restricted to owned or explicitly authorized systems and isolated labs.
-- The checked-in policy disables arbitrary remote shell, credential collection, real-world phishing, and destructive actions.
-- Use least privilege; do not enable Android root merely to run Pirate.
-- Keep Git and Python updated through the package manager appropriate to the host.
-
-No hardcoded secret or live credential is currently documented or required by the inspected source.
-
-## Troubleshooting
-
-### `python` or `python3` is not found
-
-Install Python with `pkg install python` on Termux or the host distribution's package manager. Then rerun the direct command.
-
-### The interactive launcher cannot find files
-
-The `bin/` wrappers assume `$HOME/.ys-ultra15`. Run `python3 core/core.py status` from a clone, or install/copy the project to the expected base path before using the wrappers.
-
-### Registry/configuration file is missing
-
-Run commands from the repository root for direct execution. The installed wrapper layout must contain `core/` and `config/` below `$HOME/.ys-ultra15`.
-
-### An optional installer fails
-
-The failing command belongs to the selected registry entry and may require Termux, Go, network access, or separate system permissions. Review the entry and install its prerequisites manually; do not run it against unauthorized targets.
-
-### Update script fails
-
-Set `YS15_REPO` to a valid HTTPS GitHub repository URL. The update workflow also relies on Git and may require the remote repository to contain the expected files, including `install.sh` for the interactive update path.
-
-### Railway process exits immediately
-
-That is expected for the current finite CLI commands. Pirate is **CLI-only — not a Railway Web Service**. Do not solve this by adding an HTTP server without an explicit architecture change.
-
-### Telegram bot does not respond
-
-No live Telegram bot is implemented. `bot/bot.py` is a placeholder and does not read a token or connect to Telegram.
-
-## Project Structure
-
-```text
 .
-├── .env.example                 Safe template for YS15_REPO
-├── .gitignore                   Ignores local secrets and runtime files
-├── LICENSE                      Project/third-party licensing notice
-├── README.md                    This documentation
-├── VERSION                      Current version: 15.0.0
+├── VERSION
+├── README.md
+├── .gitignore
+│
 ├── bin/
-│   ├── ys15                    Interactive launcher
-│   ├── ys15-install            Install wrapper
-│   ├── ys15-scan               Scan wrapper
-│   └── ys15-update             Update wrapper
-├── bot/
-│   ├── README.md                Telegram control-layer notes
-│   └── bot.py                   Non-operational placeholder
-├── config/
-│   ├── categories.json          Registry category labels
-│   └── registry.json            Tool definitions and install metadata
+│   ├── ys15
+│   ├── ys15-install
+│   ├── ys15-scan
+│   └── ys15-update
+│
 ├── core/
-│   ├── core.py                 CLI dispatcher
-│   ├── dependencies.py         Basic command availability report
-│   ├── installer.py             Registry validation and execution
-│   ├── registry.py              Registry loader
-│   ├── scanner.py               Local capability scanner
-│   ├── utils.py                 Small filesystem/banner helpers
-│   └── verifier.py              Command verifier
+│   ├── core.py
+│   ├── dependencies.py
+│   ├── installer.py
+│   ├── registry.py
+│   ├── scanner.py
+│   ├── utils.py
+│   └── verifier.py
+│
+├── config/
+│   ├── registry.json
+│   └── categories.json
+│
+├── bot/
+│   ├── bot.py
+│   └── README.md
+│
 ├── scripts/
-│   └── update.sh                Optional update workflow
-├── security/
-│   ├── lab-rules.md             Authorized-lab rules
-│   └── policy.json              Safety policy
-├── templates/
-│   └── telegram-menu.json       Menu template; no live transport
-├── tests/
-│   └── test_repository.py       Repository smoke tests
-└── update.sh                    Termux compatibility wrapper
-```
+│   └── update.sh
+│
+├── reports/
+├── logs/
+├── locks/
+└── tests/
 
-## Testing and Verification
 
-Run the repository's existing tests without adding dependencies:
+---
 
-```bash
-python3 -m unittest discover -s tests -p 'test_*.py'
-python3 -m compileall -q core bot tests
-python3 core/core.py status
-```
+🧰 Core Termux Packages
 
-The tests validate the version file, registry JSON, Python compilation, and defensive policy flags. They do not require Telegram, AI providers, a database, network access, or secrets.
+The environment is designed around the following Termux packages.
 
-## Roadmap and Limitations
+Shell and system
 
-- **Implemented:** registry-driven CLI scanning, installer dispatch, Termux-oriented wrappers, update scripts, security policy, and smoke tests.
-- **Not currently implemented:** live Telegram transport, handlers, routers, middleware, FSM, AI/LLM integration, database, migrations, HTTP API, frontend, web dashboard, long-running worker, Docker deployment, Railway service configuration, and Kubernetes deployment.
-- **Planned only if explicitly required:** a real Telegram worker or another long-running runtime. Such a change would require a separate architecture decision and must not be introduced solely to make the current CLI appear web-compatible.
+bash
 
-## Contact
+coreutils
 
-- **Telegram Channel:** https://t.me/mafia_4O4
-- **Telegram Account:** `@II_4O4`
-- **Telegram Bot:** https://t.me/MA_Boss_Bot (`@MA_Boss_Bot`)
-- **Facebook:** [Yousef Z. A. Shaheen](https://www.facebook.com/share/19FsAxNz4o/)
+findutils
 
-## Legal Notice
+grep
 
-Use every security-related tool only against systems you own or have explicit permission to test. Third-party projects listed in the registry remain subject to their own licenses and terms.
+sed
+
+gawk
+
+tar
+
+gzip
+
+bzip2
+
+xz-utils
+
+zip
+
+unzip
+
+procps
+
+ncurses-utils
+
+file
+
+tree
+
+which
+
+
+Networking
+
+curl
+
+wget
+
+openssh
+
+nmap
+
+netcat
+
+netcat-openbsd
+
+tor
+
+aria2
+
+
+Development
+
+git
+
+gh
+
+python
+
+python-pip
+
+clang
+
+make
+
+cmake
+
+pkg-config
+
+nodejs
+
+npm
+
+golang
+
+rust
+
+rustc
+
+cargo
+
+openjdk
+
+
+Data and databases
+
+sqlite
+
+postgresql
+
+mariadb
+
+redis
+
+
+Storage and synchronization
+
+rclone
+
+rsync
+
+syncthing
+
+squashfs-tools
+
+
+Security and cryptography
+
+openssl
+
+gnupg
+
+clamav
+
+inotify-tools
+
+aide
+
+
+Terminal productivity
+
+tmux
+
+fzf
+
+zsh
+
+neovim
+
+micro
+
+htop
+
+glances
+
+git-delta
+
+tldr
+
+
+Archive/media/build utilities
+
+ffmpeg
+
+qemu-utils
+
+qemu-system-aarch64
+
+
+Availability depends on the current Termux repository and ARM64 support. The project intentionally detects unavailable packages instead of pretending that every package is installed.
+
+
+---
+
+🐍 Python Ecosystem
+
+Python is one of the primary automation languages in the project.
+
+Used for:
+
+Y-SHAHEEN core
+
+Telegram Bot API integration
+
+scanners
+
+registry management
+
+dependency checks
+
+verification
+
+automation
+
+project utilities
+
+
+Related Python tools and projects:
+
+Aider
+
+SQLMap
+
+Mitmproxy
+
+Puppeteer-related automation through Python/Node workflows
+
+Textual
+
+Flet
+
+
+Aider
+
+Aider was evaluated for ARM64 Termux.
+
+Native installation can encounter Android-specific dependency issues, especially packages requiring unsupported native builds.
+
+The recommended deployment model is:
+
+Termux
+└── PRoot Ubuntu/Debian
+    └── Python 3.12
+        └── virtual environment
+            └── Aider
+
+Aider should therefore be considered a Linux/PRoot development component unless native ARM64 Termux dependencies are confirmed.
+
+
+---
+
+🟢 JavaScript / Node.js
+
+Supported development ecosystem:
+
+Node.js
+
+npm
+
+pnpm
+
+Bun
+
+Puppeteer
+
+Puppeteer-core
+
+JavaScript automation
+
+web tooling
+
+
+Puppeteer/Puppeteer-core requires a compatible browser executable.
+
+
+---
+
+🦀 Rust
+
+Rust tooling included in the environment design:
+
+rust
+rustc
+cargo
+
+Rust is useful for:
+
+native utilities
+
+high-performance command-line tools
+
+ARM64 development
+
+security tooling
+
+systems development
+
+
+
+---
+
+🐹 Go
+
+Go tooling:
+
+golang
+go
+
+Used for the Go ecosystem and tools such as:
+
+Naabu
+
+Nuclei
+
+Subfinder
+
+ffuf
+
+other Go-based CLI utilities
+
+
+
+---
+
+🐧 Linux Distributions
+
+The PRoot environment supports the following distribution targets.
+
+Debian
+
+debian
+
+General-purpose Linux development environment.
+
+
+---
+
+Ubuntu
+
+ubuntu
+
+General-purpose development, Python, cloud and server environment.
+
+
+---
+
+Kali Linux
+
+kali-rolling
+
+Security laboratory environment.
+
+Use only against systems and targets for which you have authorization.
+
+
+---
+
+Alpine Linux
+
+alpine
+
+Lightweight Linux environment.
+
+
+---
+
+Parrot OS
+
+parrot
+
+Optional target.
+
+It must not be considered installed unless:
+
+proot-distro list --quiet
+
+actually reports it.
+
+
+---
+
+NixOS
+
+nixos
+
+Optional target.
+
+It must not be considered installed unless it is actually available and registered in the local PRoot environment.
+
+
+---
+
+🖥️ Graphical Environment
+
+The project includes a Linux GUI deployment path.
+
+Kali GUI
+
+The tested GUI deployment path uses:
+
+XFCE4
+
+xfce4-goodies
+
+dbus-x11
+
+TigerVNC
+
+
+Example environment:
+
+Kali Linux
+   │
+   ├── XFCE4
+   ├── XFCE Goodies
+   ├── DBus
+   └── TigerVNC
+
+Example startup:
+
+vncserver :1 -geometry 1280x720 -depth 24
+
+Display:
+
+:1
+
+VNC port:
+
+5901
+
+Stop:
+
+vncserver -kill :1
+
+
+---
+
+📱 Termux:X11
+
+The project is designed to support integration between:
+
+Termux
+    ↓
+PRoot Linux
+    ↓
+XFCE
+    ↓
+Termux:X11
+
+A dedicated integration/startup script can be used to prepare the Linux GUI environment when Termux:X11 is available.
+
+The GUI layer must be treated separately from the base Termux environment.
+
+
+---
+
+🗄️ Databases
+
+The project includes a database-oriented development layer.
+
+SQLite
+
+Lightweight embedded database:
+
+sqlite3
+
+Suitable for:
+
+local state
+
+metadata
+
+small projects
+
+automation
+
+test databases
+
+
+
+---
+
+PostgreSQL
+
+Server-grade relational database:
+
+psql
+postgres
+
+Used for:
+
+application development
+
+backend testing
+
+relational workloads
+
+
+Requires initialization and server startup before use.
+
+
+---
+
+MariaDB
+
+MySQL-compatible relational database:
+
+mariadb
+
+Used for:
+
+web development
+
+backend applications
+
+SQL testing
+
+
+Requires initialization and server startup.
+
+
+---
+
+Redis
+
+In-memory data store:
+
+redis-server
+redis-cli
+
+Used for:
+
+caching
+
+queues
+
+sessions
+
+development environments
+
+
+Requires the Redis server process to be running.
+
+
+---
+
+🐳 Docker
+
+Docker is included in the project's infrastructure/tool registry.
+
+Important distinction:
+
+Docker CLI
+≠
+Docker daemon
+
+Standard non-root Android Termux does not provide the same Docker daemon environment as a normal Linux host.
+
+Possible deployment models include:
+
+PRoot/Linux
+Remote Linux VM
+Cloud server
+Rootless-compatible environment
+
+Docker should therefore be treated as an optional infrastructure component, not assumed to be natively available on every Termux installation.
+
+
+---
+
+☁️ Cloud / Infrastructure
+
+The project is designed to work with external infrastructure where available.
+
+Tools and technologies include:
+
+GitHub
+
+Git
+
+GitHub CLI
+
+Rclone
+
+OpenSSH
+
+Kubernetes-related tooling
+
+kubectl
+
+Helm
+
+Terraform
+
+Ansible
+
+Docker
+
+QEMU
+
+Crossplane
+
+KubeVirt
+
+cloud/VPS environments
+
+
+The project does not claim that Termux itself magically provides a free remote cloud server.
+
+A cloud server requires an actual provider or remote infrastructure.
+
+
+---
+
+🧱 Infrastructure Projects
+
+The broader Y-SHAHEEN environment has also investigated:
+
+Kubernetes
+
+Container orchestration platform.
+
+
+---
+
+Crossplane
+
+Infrastructure control plane for managing cloud and infrastructure resources through Kubernetes APIs.
+
+
+---
+
+KubeVirt
+
+Virtual machine management on Kubernetes.
+
+
+---
+
+Firecracker
+
+Lightweight microVM technology suitable for isolated workloads.
+
+These projects are infrastructure/server-side components and should not be considered native Termux packages.
+
+
+---
+
+🔐 Cryptography and Security
+
+Security and cryptography layer:
+
+OpenSSL
+
+GnuPG / GPG
+
+ClamAV
+
+AIDE
+
+shred
+
+srm
+
+GoCryptFS
+
+Cryptomator
+
+VeraCrypt
+
+EDS
+
+iShredder
+
+rclone crypt
+
+encryption/decryption workflows
+
+SHA-256 verification
+
+
+Important
+
+Not every cryptography product listed above is a native Termux package.
+
+Some are:
+
+Android applications
+
+Linux applications
+
+external tools
+
+PRoot-compatible software
+
+optional components
+
+
+The registry should report their actual status.
+
+
+---
+
+🛡️ Security Laboratory Tools
+
+The security registry contains tools intended for authorized testing and educational laboratories.
+
+Network discovery
+
+Nmap
+
+Naabu
+
+
+Vulnerability research / assessment
+
+Nuclei
+
+SQLMap
+
+RouterSploit
+
+Metasploit
+
+
+Content discovery / fuzzing
+
+ffuf
+
+Gobuster
+
+Fuzzing tools
+
+
+Enumeration
+
+Subfinder
+
+
+Proxy / traffic analysis
+
+Mitmproxy
+
+Wireshark
+
+Tshark
+
+Bettercap
+
+
+Tunneling / networking
+
+Tor
+
+Xray-core
+
+Sing-box
+
+Iodine
+
+
+Web/security research
+
+WebSploit
+
+
+Social-engineering simulation
+
+SEToolkit
+
+GoPhish
+
+phishing simulators
+
+
+Honeypot / defensive research
+
+Cowrie
+
+
+Vulnerability education
+
+Log4Shell laboratory
+
+
+Browser/privacy
+
+Mullvad Browser
+
+
+
+---
+
+⚠️ Security Usage Policy
+
+Security tools are intended for:
+
+owned systems
+
+authorized penetration tests
+
+CTFs
+
+Hack The Box
+
+TryHackMe
+
+local laboratories
+
+defensive research
+
+educational environments
+
+
+The project does not provide authorization to attack third-party systems.
+
+The Telegram control layer intentionally avoids unrestricted remote shell execution.
+
+
+---
+
+🧪 Security Training Platforms
+
+The registry includes integrations/references for:
+
+Hack The Box
+
+TryHackMe
+
+Log4Shell laboratory
+
+fuzzing laboratories
+
+
+These are external platforms/environments and are not installed as Termux packages.
+
+
+---
+
+📦 Tool Registry
+
+The project registry separates tools into categories.
+
+Networking
+Security
+Cryptography
+Development
+Databases
+Storage
+Cloud
+Linux
+GUI
+Productivity
+Automation
+Laboratory
+External Platforms
+
+The scanner should distinguish:
+
+INSTALLED
+MISSING
+EXTERNAL
+LAB
+OPTIONAL
+
+This prevents a registry entry from being mistaken for a successfully installed executable.
+
+
+---
+
+🤖 Telegram Bot
+
+Telegram control is an important part of the environment.
+
+Bot:
+
+@MA_Boss_Bot
+
+https://t.me/MA_Boss_Bot
+
+Channel:
+
+https://t.me/mafia_4O4
+
+Telegram account:
+
+@II_4O4
+
+
+---
+
+🎛️ Telegram Main Menu
+
+The intended main Telegram interface is:
+
+🤖 Y-SHAHEEN BOT
+
+⁖ 𝐃𝐎𝐍 ⁞ 𝐒𝐇𝐀𝐇𝐄𝐄𝐍-♔
+
+🟢 SYSTEM ONLINE
+
+[ Termux-Ys 000 ]
+
+┌─────────────────────────────┐
+│ 🖥 System    │ 💾 Storage    │
+├─────────────────────────────┤
+│ 📦 Distros   │ 🧰 Tools      │
+├─────────────────────────────┤
+│ ☁️ Rclone    │ 🔐 GPG        │
+├─────────────────────────────┤
+│ 🌐 Web       │ 📤 Upload     │
+├─────────────────────────────┤
+│ 🖥 Tmux      │ 📊 Processes  │
+├─────────────────────────────┤
+│ 🔄 Update    │ 🟢 BOT        │
+├─────────────────────────────┤
+│ 🎨 Kali GUI  │ 📚 Commands   │
+└─────────────────────────────┘
+
+
+---
+
+🖥️ System Button
+
+Displays:
+
+Android architecture
+
+Termux environment
+
+memory
+
+storage
+
+running processes
+
+uptime/status
+
+CPU information
+
+installed core tools
+
+
+
+---
+
+💾 Storage Button
+
+Storage operations include:
+
+local storage status
+
+backup information
+
+restore information
+
+checksum verification
+
+Rclone status
+
+Telegram storage workflows
+
+
+The project previously validated a Telegram channel upload/download workflow using a manifest and SHA-256 verification.
+
+
+---
+
+📦 Distros Button
+
+The Telegram distro menu:
+
+🐧 Debian
+🟠 Ubuntu
+🛡 Kali Linux
+🦜 Parrot OS
+⚡ Alpine
+❄️ NixOS
+
+Each distro should show its actual installation state.
+
+The bot must not pretend that an uninstalled distribution exists.
+
+
+---
+
+🧰 Tools Button
+
+The Tools screen displays the detected state of registered tools.
+
+Example:
+
+🟢 nmap
+🟢 git
+🟢 python
+🟢 tmux
+🟢 rclone
+
+🔴 sqlmap
+🔴 nuclei
+🔴 naabu
+🔴 subfinder
+🔴 ffuf
+🔴 gobuster
+
+For optional tools, the interface can provide:
+
+[ Install ]
+
+beside the tool.
+
+
+---
+
+📥 Install Buttons
+
+The intended Telegram tool interface is:
+
+🧰 TOOL
+Nmap
+Status: Installed
+
+[ Reinstall / Update ]
+
+or:
+
+🧰 TOOL
+Nuclei
+Status: Missing
+
+[ Install ]
+
+or:
+
+🧰 TOOL
+Hack The Box
+Status: External
+
+[ Open Platform ]
+
+The Install button must only execute a known registry installation action.
+
+It must not execute arbitrary commands received from Telegram.
+
+
+---
+
+🛡️ Security Tools Menu
+
+Example layout:
+
+🛡 SECURITY LAB
+
+Nmap
+[ Install ]
+
+Naabu
+[ Install ]
+
+Nuclei
+[ Install ]
+
+Subfinder
+[ Install ]
+
+ffuf
+[ Install ]
+
+Gobuster
+[ Install ]
+
+SQLMap
+[ Install ]
+
+Metasploit
+[ Install ]
+
+Mitmproxy
+[ Install ]
+
+Tshark
+[ Install ]
+
+Bettercap
+[ Install ]
+
+RouterSploit
+[ Install ]
+
+Tor
+[ Install ]
+
+Tools that require a different environment are marked accordingly instead of being falsely reported as installed.
+
+
+---
+
+🎨 Kali GUI Button
+
+The GUI control provides information for:
+
+Kali Linux
+XFCE4
+XFCE Goodies
+DBus
+TigerVNC
+
+Example:
+
+🎨 KALI GUI
+
+Status: READY / NOT READY
+
+[ Install GUI ]
+[ Start GUI ]
+[ Stop GUI ]
+[ GUI Status ]
+
+The GUI installation path is intended for the installed kali-rolling PRoot environment.
+
+
+---
+
+☁️ Rclone Button
+
+Rclone functionality:
+
+remote configuration
+
+storage listing
+
+upload
+
+download
+
+sync
+
+encrypted crypt remotes
+
+storage diagnostics
+
+
+Example:
+
+☁️ RCLONE
+
+[ Remotes ]
+[ List ]
+[ Upload ]
+[ Download ]
+[ Sync ]
+[ Crypt ]
+
+Rclone encryption protects data on the configured remote; it does not itself create additional physical storage.
+
+
+---
+
+🔐 GPG Button
+
+GPG functions:
+
+🔐 GPG
+
+[ Generate Key ]
+[ List Keys ]
+[ Encrypt ]
+[ Decrypt ]
+[ Sign ]
+[ Verify ]
+
+Sensitive private keys must never be committed to Git.
+
+
+---
+
+🌐 Web Server Button
+
+Development web-server controls can include:
+
+local HTTP server
+
+project server
+
+status
+
+port information
+
+stop/start controls
+
+
+Only registered/safe operations should be exposed through Telegram.
+
+
+---
+
+📤 Upload Button
+
+Upload workflows can include:
+
+📤 UPLOAD
+
+[ Telegram ]
+[ Rclone ]
+[ Project Artifact ]
+[ Backup ]
+
+Files should be verified using hashes where appropriate.
+
+
+---
+
+🖥️ Tmux Button
+
+Tmux operations:
+
+🖥 TMUX
+
+[ Sessions ]
+[ Attach ]
+[ Create ]
+[ Stop ]
+[ Status ]
+
+The Telegram interface should expose only predefined session operations.
+
+
+---
+
+📊 Processes Button
+
+Process monitoring can expose:
+
+CPU
+
+RAM
+
+process count
+
+tmux sessions
+
+bot status
+
+system load
+
+
+Possible local tools:
+
+htop
+glances
+ps
+top
+
+
+---
+
+🔄 Update Button
+
+Update functionality includes:
+
+Termux packages
+Project files
+Git repository
+Tool registry
+
+Example:
+
+🔄 UPDATE
+
+[ Check ]
+[ Update Termux ]
+[ Update Project ]
+[ Update Registry ]
+
+Updates should be explicit and auditable.
+
+
+---
+
+🟢 BOT Button
+
+The BOT status page displays:
+
+🟢 TELEGRAM BOT
+
+API: Connected
+Polling: Active
+Process: Running
+tmux: ys-bot
+
+The bot token is never displayed.
+
+
+---
+
+📚 All Commands Button
+
+The command reference contains the project's safe local commands.
+
+Examples:
+
+ys15
+ys15-install
+ys15-scan
+ys15-update
+
+and diagnostic commands such as:
+
+proot-distro list --quiet
+tmux ls
+git status
+python --version
+rclone version
+
+
+---
+
+🧩 Y-SHAHEEN Script 15
+
+The Script 15 runtime is organized into:
+
+core/
+    core.py
+    dependencies.py
+    installer.py
+    registry.py
+    scanner.py
+    utils.py
+    verifier.py
+
+bin/
+    ys15
+    ys15-install
+    ys15-scan
+    ys15-update
+
+config/
+    registry.json
+    categories.json
+
+
+---
+
+🔍 Scanner
+
+The scanner checks real executables rather than relying only on registry entries.
+
+Example categories:
+
+INSTALLED
+MISSING
+EXTERNAL
+LAB
+OPTIONAL
+
+Example:
+
+✓ nmap
+✓ tor
+
+✗ sqlmap
+✗ naabu
+✗ nuclei
+✗ subfinder
+✗ ffuf
+✗ gobuster
+✗ mitmproxy
+✗ tshark
+✗ bettercap
+✗ iodine
+✗ websploit
+✗ routersploit
+
+Actual status depends on the current device.
+
+
+---
+
+🧠 Core Components
+
+core.py
+
+Main project coordination layer.
+
+registry.py
+
+Tool and component registry.
+
+installer.py
+
+Installation logic for supported registry components.
+
+dependencies.py
+
+Dependency detection.
+
+scanner.py
+
+Environment/tool scanning.
+
+verifier.py
+
+Verification and validation.
+
+utils.py
+
+Shared utilities.
+
+
+---
+
+🔒 Security Model
+
+The project follows several rules:
+
+1. Secrets are stored outside Git.
+
+
+2. Telegram tokens are never printed.
+
+
+3. Telegram administrative access must be restricted.
+
+
+4. Arbitrary remote shell execution is disabled.
+
+
+5. Security tools are intended for authorized environments.
+
+
+6. Destructive PRoot operations require explicit user action.
+
+
+7. Existing files should be preserved before repair.
+
+
+8. Installation state must be detected rather than assumed.
+
+
+9. Tool registry entries do not automatically mean installation success.
+
+
+10. Reports should identify actual runtime state.
+
+
+
+
+---
+
+🔑 Secrets
+
+Telegram configuration belongs outside the repository.
+
+Example:
+
+~/.ys-ultra15/secrets/telegram.env
+
+or the runtime secret location configured by the deployed bot.
+
+Never commit:
+
+.env
+.env.*
+telegram.env
+private keys
+API keys
+bot tokens
+passwords
+certificates
+
+Recommended permissions:
+
+chmod 700 ~/.ys-ultra15
+chmod 700 ~/.ys-ultra15/secrets
+chmod 600 ~/.ys-ultra15/secrets/telegram.env
+
+
+---
+
+🧪 Validation
+
+Before a release:
+
+python -m py_compile core/*.py
+
+Shell validation:
+
+bash -n bin/ys15
+bash -n bin/ys15-install
+bash -n bin/ys15-scan
+bash -n bin/ys15-update
+bash -n scripts/update.sh
+
+Git validation:
+
+git status
+git log --oneline -5
+
+PRoot validation:
+
+proot-distro list --quiet
+
+Tmux validation:
+
+tmux ls
+
+Telegram bot validation:
+
+python -u bot/bot.py
+
+
+---
+
+🧰 Additional Development Tools
+
+The broader environment includes support/planned integration for:
+
+Git
+
+GitHub CLI
+
+uv
+
+npm
+
+pnpm
+
+Bun
+
+Go
+
+Rust
+
+Clang
+
+CMake
+
+Make
+
+Terraform
+
+Ansible
+
+Helm
+
+kubectl
+
+Cookiecutter
+
+Copier
+
+Hygen
+
+Plop
+
+Neovim
+
+LazyVim
+
+Micro
+
+Zsh
+
+Oh My Zsh
+
+fzf
+
+tldr
+
+git-delta
+
+HTTPie
+
+ngrok
+
+OpenSSH
+
+Textual
+
+Flet
+
+
+Availability depends on the execution environment and ARM64 compatibility.
+
+
+---
+
+🌐 Networking Tools
+
+Registered networking tools include:
+
+curl
+wget
+ssh
+OpenSSH
+nmap
+netcat
+aria2
+tor
+rclone
+rsync
+syncthing
+
+Advanced networking/lab registry:
+
+Xray-core
+Sing-box
+Iodine
+WebSploit
+Bettercap
+Mitmproxy
+Tshark
+Wireshark
+
+
+---
+
+📦 Storage and Backup
+
+Storage ecosystem:
+
+Rclone
+Rclone Crypt
+Syncthing
+rsync
+SQLite
+SquashFS
+Telegram file storage workflow
+SHA-256 verification
+GPG encryption
+
+Telegram channel storage was tested with:
+
+UPLOAD      : OK
+MANIFEST    : OK
+FILE_ID     : OK
+DOWNLOAD    : OK
+SHA-256     : VERIFIED
+
+
+---
+
+🧱 Build and Packaging
+
+The project can support project workflows such as:
+
+Detect
+   ↓
+Dependencies
+   ↓
+Tests
+   ↓
+Build
+   ↓
+Package
+   ↓
+Encrypt
+   ↓
+Upload
+
+Supported project ecosystems can include:
+
+Python
+Node.js
+Go
+Rust
+C/C++
+
+depending on available manifests and toolchains.
+
+
+---
+
+🖥️ Productivity Environment
+
+Terminal productivity layer:
+
+tmux
+fzf
+zsh
+Oh My Zsh
+Neovim
+LazyVim
+Micro
+tldr
+git-delta
+htop
+glances
+
+
+---
+
+🔬 Laboratory Environments
+
+The project can be used with:
+
+Hack The Box
+TryHackMe
+CTF environments
+Local vulnerable VMs
+Local containers
+Authorized security labs
+
+
+---
+
+🧪 Security Research Components
+
+The registry includes references to:
+
+Metasploit
+Nmap
+SQLMap
+Naabu
+Nuclei
+Subfinder
+ffuf
+Gobuster
+RouterSploit
+Mitmproxy
+Tshark
+Wireshark
+Bettercap
+Tor
+Xray-core
+Sing-box
+Iodine
+WebSploit
+SET
+GoPhish
+Cowrie
+Log4Shell laboratory
+
+Some components are intended for Linux/PRoot or external laboratory environments rather than direct native Termux installation.
+
+
+---
+
+📱 Android Integration
+
+The host environment is:
+
+Android
+   ↓
+Termux
+   ↓
+PRoot
+   ↓
+Linux
+   ↓
+GUI / Development / Security Lab
+
+The architecture is designed to operate without requiring Android root.
+
+
+---
+
+🚫 What This Project Does Not Claim
+
+This README intentionally does not claim that:
+
+every listed tool is installed
+
+every tool supports Android ARM64 natively
+
+Docker daemon works natively inside standard Termux
+
+Parrot OS is installed automatically
+
+NixOS is installed automatically
+
+Aider is natively functional on Termux
+
+every GUI component is always running
+
+every database server is permanently running
+
+every external platform is embedded locally
+
+a free cloud server is magically created by Termux
+
+
+Actual installation status should be obtained from the project's scanner.
+
+
+---
+
+👤 Owner
+
+Telegram Channel
+
+Mafia 4O4
+
+https://t.me/mafia_4O4
+
+Telegram Account
+
+@II_4O4
+
+Telegram Bot
+
+@MA_Boss_Bot
+
+https://t.me/MA_Boss_Bot
+
+Facebook
+
+Yousef Z. A. Shaheen
+
+https://www.facebook.com/share/19FsAxNz4o/
+
+
+---
+
+🏴 Project Identity
+
+Pirate - ☠️
+
+Y-SHAHEEN PARROTSHELL ULTRA
+Script 15
+
+Termux
+Android ARM64
+PRoot
+Linux
+GUI
+Development
+Databases
+Storage
+Security Labs
+Telegram Automation
+
+
+---
+
+📜 Safe Usage
+
+This project is intended for:
+
+personal development
+
+system administration
+
+authorized security testing
+
+educational laboratories
+
+CTFs
+
+development environments
+
+automation
+
+infrastructure experimentation
+
+
+Users are responsible for obtaining authorization before testing systems that they do not own or administer.
+
+
+---
+
+🚀 Quick Start
+
+Clone the repository and enter it:
+
+git clone <repository-url>
+cd <repository-directory>
+
+Check the environment:
+
+proot-distro list --quiet
+
+Check the project:
+
+git status
+
+Check Python:
+
+python --version
+
+Check Script 15:
+
+./bin/ys15
+
+Run the scanner:
+
+./bin/ys15-scan
+
+Update:
+
+./bin/ys15-update
+
+
+---
+
+🩺 Diagnostics
+
+python -m py_compile core/*.py
+
+bash -n bin/ys15
+bash -n bin/ys15-install
+bash -n bin/ys15-scan
+bash -n bin/ys15-update
+
+proot-distro list --quiet
+
+tmux ls
+
+git status
+
+
+---
+
+📊 Status Philosophy
+
+The project intentionally distinguishes between:
+
+Status	Meaning
+
+🟢 Installed	Executable/component detected
+🟡 Optional	Supported but not required
+🔴 Missing	Registry entry exists but component is absent
+🔵 External	External service/platform
+🧪 Lab	Intended for an authorized lab
+🐧 PRoot	Linux environment component
+🎨 GUI	Graphical environment component
+
+
+This keeps the README and Telegram interface honest about the actual state of the device.
+
+
+---
+
+⭐ Project Goals
+
+The long-term goals are:
+
+one unified Termux environment
+
+modular tool registry
+
+ARM64 awareness
+
+PRoot Linux environments
+
+GUI support
+
+database support
+
+development toolchains
+
+secure storage
+
+backup/restore
+
+Telegram administration
+
+automated diagnostics
+
+GitHub synchronization
+
+reproducible installation
+
+clear separation between installed and optional components
+
+
+
+---
+
+<p align="center">
+  <strong>Pirate - ☠️</strong>
+</p><p align="center">
+  Y-SHAHEEN PARROTSHELL ULTRA
+</p><p align="center">
+  Termux • Android ARM64 • Linux • Development • Automation • Security Labs
+</p>
