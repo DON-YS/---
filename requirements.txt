@@ -1,0 +1,2 @@
+# No third-party Python packages are required by the current web/API and CLI implementation.
+# Python 3.12 standard library is sufficient.
