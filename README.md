@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="https://files.catbox.moe/c0px9v.gif"
+    src="https://i.postimg.cc/G29jC8JS/72fce67de5e67554e30052c68a5ef622.gif"
     alt="Pirate - ☠️"
     width="900"
   />
